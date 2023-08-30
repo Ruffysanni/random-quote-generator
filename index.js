@@ -4,9 +4,11 @@ const quote = document.getElementById("quote");
 const author = document.getElementById("author");
 const newQuote = document.getElementById("new-quote");
 const newTweet = document.getElementById("tweet");
+// const blockEl = document.querySelector("blockquote")
 
 //fetching data from the quote api
 async function getQuotes(url){
+    
     const response = await fetch(url);
     var data = await response.json();
     
@@ -23,4 +25,9 @@ newQuote.addEventListener("click", function(){
 //Postiong the quote on twitter...
 newTweet.addEventListener("click", function(){
     window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + " --- by " + author.innerHTML, "Tweet window", "width=600px, height=300px")
-})
+});
+//create a function to reset the quote to empty
+// function resetQuote(){
+//     quote.innerText = "";
+// }
+// resetQuote();
